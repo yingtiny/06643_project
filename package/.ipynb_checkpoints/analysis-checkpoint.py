@@ -4,16 +4,55 @@ import matplotlib.pyplot as plt
 import os
 
 
-stopwords = ["the", "and", "of", "in", "to",
-             "for", "with", "have", "are",
-             "is", "as", "this", "that",
-             "from", "by", "a", "an", "their",
-             "however,", "also", "be", "range", "high",
-             "on", "we", "has", "can", "here", "as",
-             "or", "various", "at", "into", "these", "such",
-             "which", "used", "been", "it",
-             "use", "using", "discuss",
-             "review", "methods", "recent", "low", "2"]
+stopwords = [
+    "the",
+    "and",
+    "of",
+    "in",
+    "to",
+    "for",
+    "with",
+    "have",
+    "are",
+    "is",
+    "as",
+    "this",
+    "that",
+    "from",
+    "by",
+    "a",
+    "an",
+    "their",
+    "however,",
+    "also",
+    "be",
+    "range",
+    "high",
+    "on",
+    "we",
+    "has",
+    "can",
+    "here",
+    "as",
+    "or",
+    "various",
+    "at",
+    "into",
+    "these",
+    "such",
+    "which",
+    "used",
+    "been",
+    "it",
+    "use",
+    "using",
+    "discuss",
+    "review",
+    "methods",
+    "recent",
+    "low",
+    "2",
+]
 
 
 def word_frequency(abstract_text):
@@ -40,16 +79,17 @@ def plot_frequency(total_counts, top_n=30):
     print("Top 30 Most Common Professional Terms:")
     word_count_dict = dict(zip(words, counts))
     print(word_count_dict)
-    \
     plt.figure(figsize=(10, 6))
     plt.bar(words, counts)
-    plt.title(f'Top {top_n} Most Common Professional Terms\
-              in Abstracts (Excluding Stopwords)')
-    plt.xlabel('Professional Terms')
-    plt.ylabel('Frequency')
+    plt.title(
+        f"Top {top_n} Most Common Professional Terms\
+              in Abstracts (Excluding Stopwords)"
+    )
+    plt.xlabel("Professional Terms")
+    plt.ylabel("Frequency")
     plt.xticks(rotation=45)
 
-    if 'PYTEST_CURRENT_TEST' in os.environ:
-        plt.savefig('/tmp/test_plot.png')
+    if "PYTEST_CURRENT_TEST" in os.environ:
+        plt.savefig("/tmp/test_plot.png")
     else:
         plt.show()

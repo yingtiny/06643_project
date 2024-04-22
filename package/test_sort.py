@@ -33,3 +33,5 @@ def test_project_output_and_plot():
     counts = list(output_dict.values())
     assert all(counts[i] >= counts[i + 1] for i in range(len(counts) - 1)), \
         "Word frequencies are not in non-increasing order"
+
+    assert plt.gcf().get_axes(), "No plot generated"
